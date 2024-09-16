@@ -13,20 +13,20 @@ router.post('/', authenticateUser, async (req, res) => {
       return res.status(400).json({ message: 'Old password and new password are required' });
     }
 
-    // Fetch the authenticated user (authMiddleware adds user to req)
+   -
     const user = await User.findById(req.user.id);
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Verify old password
+   
     const isMatch = await bcrypt.compare(oldPassword, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: 'Old password is incorrect' });
     }
 
-    // Hash new password and save it
+    
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(newPassword, salt);
     await user.save();
