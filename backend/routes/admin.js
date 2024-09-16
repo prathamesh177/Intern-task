@@ -7,7 +7,7 @@ const Rating = require('../models/Rating');
 const authenticateUser = require('../middleware/authMiddleware');
 const router = express.Router();
 
-// Middleware to check if the user is admin
+
 const isAdmin = (req, res, next) => {
     if (req.user && req.user.role === 'admin') {
         next();
@@ -16,7 +16,7 @@ const isAdmin = (req, res, next) => {
     }
 };
 
-// Get dashboard stats (only for admins)
+
 router.get('/dashboard', authenticateUser, isAdmin, async (req, res) => {
     try {
         const totalUsers = await User.countDocuments();
@@ -33,7 +33,7 @@ router.get('/dashboard', authenticateUser, isAdmin, async (req, res) => {
     }
 });
 
-// Add a new store (only admins)
+
 router.post('/addstore', authenticateUser, isAdmin, async (req, res) => {
     const { name, address } = req.body;
 
@@ -46,7 +46,7 @@ router.post('/addstore', authenticateUser, isAdmin, async (req, res) => {
     }
 });
 
-// Add a new user (only admins)
+
 router.post('/adduser', authenticateUser, isAdmin, async (req, res) => {
     const { name, email, password, address, role } = req.body;
     console.log(req.body);
