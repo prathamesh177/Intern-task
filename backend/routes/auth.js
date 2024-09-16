@@ -11,7 +11,7 @@ router.post('/signup', async (req, res) => {
         let user = await User.findOne({ email });
         if (user) return res.status(400).json({ message: "User already exists" });
 
-        // Directly store the password without hashing
+        
         user = new User({ name, email, password, address });
         await user.save();
 
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ email });
         if (!user) return res.status(400).json({ message: "User not found" });
 
-        // Compare the plain-text password directly (no hashing)
+       
         if (password !== user.password) {
             return res.status(400).json({ message: "Invalid credentials" });
         }
