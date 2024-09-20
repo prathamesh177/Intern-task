@@ -36,10 +36,14 @@ This web application allows users to register, log in, and submit ratings for st
 - **Authentication:** JWT (JSON Web Token)
 - **Form Validations:** Client-side and Server-side
 -  Validations: (validations should be present on all forms)
+-  
  ● The name length should be 60 characters max and 20 characters min
+
  ● The Address length should be 400 characters max
+ 
  ● The password length max 16 and 8 min, it should have at least 1 
 upper, and 1 special character in it.
+
  ● Email address validation should be there in the email field
 
 ## Setup Instructions
