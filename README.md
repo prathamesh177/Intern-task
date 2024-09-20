@@ -54,9 +54,10 @@ upper, and 1 special character in it.
 - **MongoDB** (either local or hosted like MongoDB Atlas)
 - **npm** (Node Package Manager)
 
-cd frontend
-cd new
-npm install
+-cd frontend
+
+-cd new
+-npm install
 
 cd backend
 npm install
