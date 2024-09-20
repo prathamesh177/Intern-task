@@ -44,8 +44,42 @@ This web application allows users to register, log in, and submit ratings for st
 - **MongoDB** (either local or hosted like MongoDB Atlas)
 - **npm** (Node Package Manager)
 
-### Steps to Run Locally
+cd frontend
+cd new
+npm install
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/kit-5.git
+cd backend
+npm install
+
+# .env file for backend
+MONGODB_URI=mongodb://localhost/storeRatings  # or your MongoDB URI
+JWT_SECRET=your_jwt_secret
+
+### Run Backend 
+cd backend
+npm start
+
+### Run Frontend
+cd frontend
+cd new
+npm start
+
+## Structure
+store-rating-app/
+├── backend/
+│   ├── models/         # Mongoose models (User, Store, Rating)
+│   ├── routes/         # Express routes for API
+│   ├── controllers/    # Controllers for business logic
+│   ├── middleware/     # Auth middleware for role-based access
+│   ├── app.js          # Main Express server file
+│   ├── config/         # MongoDB and JWT configuration
+│   └── package.json    # Backend dependencies
+├── frontend/
+│   ├── public/         # Public assets (HTML, favicon, etc.)
+│   ├── src/
+│   │   ├── components/  # React components for different pages (Signup, Login, StoreList, etc.)
+│   │   ├── services/    # Axios services to call API
+│   │   ├── App.js       # Main React app component
+│   └── package.json    # Frontend dependencies
+└── README.md           # Project README file
+
