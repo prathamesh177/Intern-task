@@ -53,27 +53,33 @@ upper, and 1 special character in it.
 - **Node.js** (version >= 12)
 - **MongoDB** (either local or hosted like MongoDB Atlas)
 - **npm** (Node Package Manager)
-
+## Install Dependencies
 -cd frontend
 
 -cd new
+
 -npm install
 
-cd backend
-npm install
+-cd backend
+
+-npm install
 
 # .env file for backend
-MONGODB_URI=mongodb://localhost/storeRatings  # or your MongoDB URI
-JWT_SECRET=your_jwt_secret
+-MONGODB_URI=mongodb://localhost/storeRatings  # or your MongoDB URI
+
+-JWT_SECRET=your_jwt_secret
 
 ### Run Backend 
-cd backend
-npm start
+-cd backend
+
+-npm start
 
 ### Run Frontend
-cd frontend
-cd new
-npm start
+-cd frontend
+
+-cd new
+
+-npm start
 
 ## Structure
 store-rating-app/
