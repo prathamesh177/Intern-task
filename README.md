@@ -69,6 +69,21 @@ upper, and 1 special character in it.
 
 -JWT_SECRET=your_jwt_secret
 
+## Add Admin
+-Add Admin into DataBase Directly using command
+
+-db.users.insert({
+
+name: "Admin Name",
+
+email: "AdminEmail@gmail.com",
+
+password: "Password",
+
+address: "Admin Address",
+
+role: "admin"})
+
 ### Run Backend 
 -cd backend
 
