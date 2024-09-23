@@ -1,41 +1,41 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const User = require('../models/User');
-const authenticateUser = require('../middleware/authMiddleware'); // Middleware to ensure user is authenticated
-const router = express.Router();
+// const express = require('express');
+// const bcrypt = require('bcryptjs');
+// const User = require('../models/User');
+// const authenticateUser = require('../middleware/authMiddleware'); // Middleware to ensure user is authenticated
+// const router = express.Router();
 
-// Change Password Route
-router.post('/', authenticateUser, async (req, res) => {
-  try {
-    const { oldPassword, newPassword } = req.body;
+// // Change Password Route
+// router.post('/', authenticateUser, async (req, res) => {
+//   try {
+//     const { oldPassword, newPassword } = req.body;
 
-    if (!oldPassword || !newPassword) {
-      return res.status(400).json({ message: 'Old password and new password are required' });
-    }
+//     if (!oldPassword || !newPassword) {
+//       return res.status(400).json({ message: 'Old password and new password are required' });
+//     }
 
-   -
-    const user = await User.findById(req.user.id);
+//    -
+//     const user = await User.findById(req.user.id);
 
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+//     if (!user) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
 
    
-    const isMatch = await bcrypt.compare(oldPassword, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Old password is incorrect' });
-    }
+//     const isMatch = await bcrypt.compare(oldPassword, user.password);
+//     if (!isMatch) {
+//       return res.status(400).json({ message: 'Old password is incorrect' });
+//     }
 
     
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(newPassword, salt);
-    await user.save();
+//     const salt = await bcrypt.genSalt(10);
+//     user.password = await bcrypt.hash(newPassword, salt);
+//     await user.save();
 
-    res.status(200).json({ message: 'Password changed successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+//     res.status(200).json({ message: 'Password changed successfully' });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: 'Server error' });
+//   }
+// });
 
-module.exports = router;
+// module.exports = router;
